@@ -29,11 +29,16 @@ different commits. See [Installation](docs/installation.md#where-mnemosyne-comes
   the gateway, uninstall ordering
 - [Troubleshooting](docs/troubleshooting.md) — silent embedding failures, DLL errors,
   leftovers
-- [SDLC team profiles](sdlc-team/README.md) — optional: nine role profiles, each with its
-  own SOUL, all wired to Mnemosyne
-- [Outsourcing team profiles](outsourcing-team/README.md) — optional: eleven role profiles
-  for delivering into a client's estate under contract, each with its own SOUL, driven from
-  the kanban board through one entry-point profile
+- [dev-team](dev-team/README.md) — an autonomous software delivery team: eight role profiles
+  governed by a Hermes plugin that mechanically enforces stage completion (QA, review, green
+  CI) instead of trusting an agent's say-so. The maintained team; start here.
+- [How the dev team works](docs/how-the-dev-team-works.md) — dev-team for newcomers: what is
+  installed, one request from start to finish (two diagrams), and where to look while it runs
+- [SDLC team profiles](old/sdlc-team/README.md) — superseded by `dev-team/`, kept frozen: nine
+  role profiles, each with its own SOUL, all wired to Mnemosyne
+- [Outsourcing team profiles](old/outsourcing-team/README.md) — superseded by `dev-team/`, kept
+  frozen: eleven role profiles for delivering into a client's estate under contract, each with
+  its own SOUL, driven from the kanban board through one entry-point profile
 - [Changelog](CHANGELOG.md)
 - [TODO](TODO.md) — outstanding work, chiefly macOS verification
 
@@ -55,6 +60,7 @@ Linux / macOS:
 | `--all` | Install `mnemosyne-memory[all]` — adds the local consolidation LLM. |
 | `--disable-builtin-memory` | Turn off Hermes' built-in `MEMORY.md` / `USER.md` store. |
 | `--skip-hermes-configuration` | Register the provider but leave `memory.provider` and the gateway alone. |
+| `--recommended-config` | Write the recommended Mnemosyne settings (cross-session recall, LLM via Hermes, strict write classifier). Memories become visible across sessions, and consolidation sends memory text to Hermes' model provider (costs tokens). See [Configuration](docs/configuration.md#recommended-configuration). |
 
 Windows:
 
@@ -69,6 +75,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force   # this windo
 | `-All` | Install `mnemosyne-memory[all]` — adds the local consolidation LLM. |
 | `-DisableBuiltinMemory` | Turn off Hermes' built-in `MEMORY.md` / `USER.md` store. |
 | `-SkipHermesConfiguration` | Register the provider but leave `memory.provider` and the gateway alone. |
+| `-RecommendedConfig` | As `--recommended-config`. |
 | `-NonInteractive` | Never prompt. Implied when no console is attached. |
 
 Hermes' own `MEMORY.md` / `USER.md` store stays active when a provider is registered, and
